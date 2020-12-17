@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Telegraph Connections in the 1850s</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #iiif-map {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            background-color: rgb(124, 124, 199);
+        }
+
+        #current-view {
+            position: absolute;
+            left: 60px;
+            top: 12px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+        }
+
+        #ui {
+            position: absolute;
+            left: 40px;
+            bottom: 40px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+        }
+
+        #intro {
+            position: absolute;
+            left: 40px;
+            top: 80px;
+            width: 300px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="iiif-map"></div>
+    <div id="current-view">
+        Current bounds:<br />
+        <div id="current-bounds"></div>
+    </div>
+    <div id="ui">
+        <button id="start-the-tour">Start the tour</button>
+    </div>
+
+    <div id="intro">
+        The telegraph fundamentally changed communication as information could be shared through cables rather than
+        letters.
+        <br><br>
+        During the 1850s, the transatlantic telegraph cable was placed between Valentia Bay in Ireland and Trinity Bay
+        in Newfoundland.
+        <br><br>
+        This chart is from the Library of Congress and you can view the <a
+            href="https://www.loc.gov/resource/g3201p.ct000465/" target="_blank">original image here</a>.
+        <br><br>
+        The goal of this page is to provide a cartographic and geographic interpretation of this chart to explore how
+        this chart presented this historic event.
+        <br><br>
+        To begin the detailed tour, please click the button below.
+        <br><br>
+        If you'd like to explore the chart first, please use your mouse or the arrow buttons to zoom in and move around.
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- make sure to import Leaflet-IIIF *after* the main Leaflet package -->
+    <script src="https://cdn.rawgit.com/mejackreed/Leaflet-IIIF/v3.0.0/leaflet-iiif.js"></script>
+
+    <script>
+        const map = L.map("iiif-map", {
+            center: [0, 0],
+            crs: L.CRS.Simple,
+            zoom: 0,
+        });
+
+        const telegraphLayer = new L.tileLayer.iiif(
+            "https://tile.loc.gov/image-services/iiif/service:gmd:gmd3:g3201:g3201p:ct000465/info.json"
+        ).addTo(map);
+
+        map.on("moveend", () => {
+            // returns 'southwest_lng,southwest_lat,northeast_lng,northeast_lat' of current view
+            const currentBounds = map.getBounds().toBBoxString();
+            console.log(currentBounds)
+            // output current bounds to screen
+            document.getElementById("current-bounds").innerText = currentBounds;
+        });
+
+        document
+            .getElementById("start-the-tour")
+            .addEventListener("click", () => {
+                map.flyToBounds([
+                    [-584, 12],
+                    [-284, 312],
+                ]);
+                console.log(map.getZoom())     
+            });
+
+        console.log(map.getZoom())
+        
+    </script>
+</body>
+
+</html>
