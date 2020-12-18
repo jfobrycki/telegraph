@@ -24,7 +24,7 @@
 
         #current-view {
             position: absolute;
-            left: 60px;
+            right: 60px;
             top: 12px;
             z-index: 1000;
             background: whitesmoke;
@@ -33,8 +33,8 @@
 
         #ui {
             position: absolute;
-            left: 40px;
-            bottom: 40px;
+            left: 50px;
+            bottom: 50px;
             z-index: 1000;
             background: whitesmoke;
             padding: 8px 12px;
@@ -42,9 +42,40 @@
 
         #intro {
             position: absolute;
-            left: 40px;
-            top: 80px;
+            left: 50px;
+            top: 60px;
             width: 300px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+            font-size: large;
+        }
+
+        #home_button {
+            position: absolute;
+            left: 50px;
+            bottom: 10px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+        }
+
+        #inset_one, #inset_two, #inset_three, #inset_five {
+            position: absolute;
+            left: 50px;
+            top: 60px;
+            width: 300px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+            font-size: large;
+        }
+
+        #inset_four {
+            position: absolute;
+            left: 50px;
+            top: 30px;
+            width: 1200px;
             z-index: 1000;
             background: whitesmoke;
             padding: 8px 12px;
@@ -61,6 +92,10 @@
     </div>
     <div id="ui">
         <button id="start-the-tour">Start the tour</button>
+    </div>
+
+    <div id="home_button">
+        <button id="home" onclick="window.location.href=window.location.href">Back to the beginning</button>
     </div>
 
     <div id="intro">
@@ -81,12 +116,82 @@
         If you'd like to explore the chart first, please use your mouse or the arrow buttons to zoom in and move around.
     </div>
 
+    <div id="inset_one">
+        Welcome to the first stop! This is a political map of the United States that shows the distribution of telegraph lines. 
+        <br><br>
+        Note how most of the telegraph lines stop just west of Illinois.
+        <br><br>
+        The United States is displayed using a political map with state and territory boundaries.
+        <br><br>
+        Feel free to look around at this map by zooming in more before jumping to the next stop on the tour.
+        <br><br>
+        How is the United Kingdom displayed in this map? Click next stop to find out!
+        <div id="next_stop">
+            <button id="next_stop_one" onclick="map.flyTo([-90, 349.12], 3); $('#inset_one').hide(); $('#inset_two').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_two">
+        Welcome to the second stop! This is a bird's eye view map of the telegraph station in Europe. 
+        <br><br>
+        This map is a strong contrast to the previous map of the United States. The telegraph line links Europe and North America, but consider the way that the United States is shown using an up-to-date political map and Europe is shown using a general thematic pastoral type image.
+        <br><br>
+        The United States map shows the expanse of the entire country and the map of Europe shows one single harbor. This representation conveys a message that the United States is more advanced.
+        <br><br>
+        Next we'll consider the four ways this chart displays the telegraph line itself.
+        <div id="next_stop">
+            <button id="next_stop_two" onclick="map.flyTo([-45, 162.75], 3); $('#inset_two').hide(); $('#inset_three').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_three">
+        Welcome to the third stop! At the top of this chart is the first of four ways the telegraph line is shown.
+        <br><br>
+        Trinity Bay in Newfoundland is positioned in such a way that the location seems to align with the United States map below to the left.
+        <br><br>
+        This map of the telegraph cable route is thematic, and does not provide any additional context relative to the ocean, particularly since the background here is a flag. The telegraph line is a dashed line drawn from one side of the chart to the other.
+        <br><br>
+        If you want to see the other end of this telegraph line, click follow the route to see!
+        <div id="follow_route">
+            <button onclick="map.flyTo([-45, 400.75], 3); $('#inset_two').hide(); $('#inset_three').show();">Follow the route</button>
+        </div>
+        Ready for the second telegraph line map! Please click next stop!
+        <div id="next_stop">
+            <button id="next_stop_three" onclick="map.flyTo([-168, 237], 3); $('#inset_three').hide(); $('#inset_four').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_four">
+        Welcome to the fourth stop! Here's the second telegraph map.
+        <br><br>
+        This map looks more like a charting map that traces the path of the telegraph line and the ships that carried the cables. The map is also drawn using a small scale to show entire contients and much of the world. However, there are medium scale mapping elements included, such as noting the presence of major population centers around the world.
+        <br><br>
+        Note the different color schemes used in the map. Europe is filled with a blue/green color and the rest the world is not filled in. This is a color theme that will appear in another part of the chart, though you'll find a potential error with this color scheme. Ready for the second telegraph line map! Please click next stop!
+        <div id="next_stop">
+            <button id="next_stop_four" onclick="map.flyTo([-270, 59.75], 3); $('#inset_four').hide(); $('#inset_five').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_five">
+        Welcome to the fifth stop! Here's the third telegraph map.
+        <br><br>
+        Now we've returned to a medium scale map in which mutiple cities are noted in Newfoundland and Nova Scotia. The blue color has returned, though this time Newfoundland is shaded blue the color that was previously used for Europe.
+        <br><br>
+        In this map, the telegraph line is of primary importance and the map includes the primary trans-Atlantic line and also several lines in Canada. This map demonstrates how the new line links up to an existing network within Canada and the United States. It's not just two bays linked by the new telegraph line, it's multiple cities and countries.
+        <br><br>
+        This map again crosses the entire chart with a dashed line linking the left and right sides of the page. Let's follow the route again!
+       
+        <div id="next_stop">
+            <button id="next_stop_five" onclick="map.flyTo([-270, 59.75], 3); $('#inset_five').hide(); $('#inset_six').show();">Next stop</button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
     <!-- make sure to import Leaflet-IIIF *after* the main Leaflet package -->
     <script src="https://cdn.rawgit.com/mejackreed/Leaflet-IIIF/v3.0.0/leaflet-iiif.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         const map = L.map("iiif-map", {
             center: [0, 0],
@@ -106,18 +211,57 @@
             document.getElementById("current-bounds").innerText = currentBounds;
         });
 
+        $('#inset_one').hide();
+        $('#inset_two').hide();
+        $('#inset_three').hide();
+        $('#inset_four').hide();
+        $('#inset_five').hide();
+        $('#home_button').hide();
+
         document
             .getElementById("start-the-tour")
             .addEventListener("click", () => {
-                map.flyToBounds([
-                    [-584, 12],
-                    [-284, 312],
-                ]);
-                console.log(map.getZoom())     
+                /*map.flyToBounds([
+                    [-360, 300],
+                    [-350, 300],
+                ]);*/
+                map.flyTo([-87.5, 92.5], 4);
+                map.on('moveend', () => {
+                    console.log(map.getZoom())
+                })
+                $('#intro').hide();
+                $('#ui').hide();
+                $('#inset_one').show();
+                $('#home_button').show();
+                $('#next_stop').show();
             });
 
+            /*home.addEventListener("click", location.reload()); */
+
         console.log(map.getZoom())
-        
+
+        // start the onMapClick function to create points
+        function onMapClick(e) {
+            // create circle and store with reference
+            let point = L.circleMarker(e.latlng, {
+                "opacity": 1,
+                "radius": 5,
+                "fillOpacity": 0.6,
+                "color": 'yellow',
+                "fillColor": 'yellow',
+                //close newMarker
+            })
+                .addTo(map);
+
+            // send the latitude and longitude of this point to the map
+            /*document.getElementById("newLatitude").value = e.latlng.lat;
+            document.getElementById("newLongitude").value = e.latlng.lng;*/
+            console.log(e.latlng)
+        } // close the onMapClick function
+
+
+        // allow the onMapClick function to work when the map is clicked
+        map.on('click', onMapClick);
     </script>
 </body>
 
