@@ -60,7 +60,9 @@
             padding: 8px 12px;
         }
 
-        #inset_one, #inset_two, #inset_three, #inset_five {
+        #inset_one, #inset_two, #inset_three, #inset_five, 
+        #inset_five_part_two, #inset_eight,
+        #inset_nine {
             position: absolute;
             left: 50px;
             top: 60px;
@@ -81,15 +83,49 @@
             padding: 8px 12px;
             font-size: large;
         }
+
+        #inset_six {
+            position: absolute;
+            left: 200px;
+            bottom: 80px;
+            width: 1000px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+            font-size: large;
+        }
+
+        #inset_seven {
+            position: absolute;
+            left: 50px;
+            top: 60px;
+            width: 350px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+            font-size: large;
+        }
+
+        #inset_ten {
+            position: absolute;
+            left: 50px;
+            top: 20px;
+            width: 500px;
+            z-index: 1000;
+            background: whitesmoke;
+            padding: 8px 12px;
+            font-size: large;
+        }
+
     </style>
 </head>
 
 <body>
     <div id="iiif-map"></div>
-    <div id="current-view">
+    <!-- <div id="current-view">
         Current bounds:<br />
         <div id="current-bounds"></div>
-    </div>
+    </div> -->
     <div id="ui">
         <button id="start-the-tour">Start the tour</button>
     </div>
@@ -168,7 +204,7 @@
         <br><br>
         Note the different color schemes used in the map. Europe is filled with a blue/green color and the rest the world is not filled in. This is a color theme that will appear in another part of the chart, though you'll find a potential error with this color scheme. Ready for the second telegraph line map! Please click next stop!
         <div id="next_stop">
-            <button id="next_stop_four" onclick="map.flyTo([-270, 59.75], 3); $('#inset_four').hide(); $('#inset_five').show();">Next stop</button>
+            <button id="next_stop_four" onclick="map.flyTo([-270, 54.75], 3); $('#inset_four').hide(); $('#inset_five').show();">Next stop</button>
         </div>
     </div>
 
@@ -180,10 +216,91 @@
         In this map, the telegraph line is of primary importance and the map includes the primary trans-Atlantic line and also several lines in Canada. This map demonstrates how the new line links up to an existing network within Canada and the United States. It's not just two bays linked by the new telegraph line, it's multiple cities and countries.
         <br><br>
         This map again crosses the entire chart with a dashed line linking the left and right sides of the page. Let's follow the route again!
-       
-        <div id="next_stop">
-            <button id="next_stop_five" onclick="map.flyTo([-270, 59.75], 3); $('#inset_five').hide(); $('#inset_six').show();">Next stop</button>
+        <div id="follow_route">
+            <button onclick="map.flyTo([-240.125, 380.625], 3.5); $('#inset_five').hide(); $('#inset_five_part_two').show();">Follow the route</button>
         </div>
+    </div>
+
+    <div id="inset_five_part_two">
+        The dashed red telegraph line has crossed the chart over to Europe. We see a range of telegraph lines that link Ireland to England and then onto continental Europe.
+        <br><br>
+        Given the attention paid to showing how this telegraph line links the two continents, it's interesting there's no actual line drawn here that links the trans-Atlantic cable to other lines in Ireland.
+        <br><br>
+        Ready for the final telegraph map? Please click next stop!
+        <div id="next_stop">
+            <button id="next_stop_six" onclick="map.flyTo([-340.5, 231.8], 4); $('#inset_five_part_two').hide(); $('#inset_six').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_six">
+        The fourth telegraph map is a profile topographic map that shows how the ocean depth varies across the North Atlantic ocean.
+        <br><br>
+        No units are given on this map, and it is drawn at a small scale. The units are likely drawn in fathoms. This map is more art than navigation device as some depths such as 2000 and 1580 seem to have similar heights.
+        Now the tour moves to other aspects of the chart, please click next stop to see!
+        <div id="next_stop">
+            <button id="next_stop_seven" onclick="map.flyTo([-271.25, 185], 2); $('#inset_six').hide(); $('#inset_seven').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_seven">
+        Welcome to the seventh stop!
+        <br><br>
+        The global clock is central feature on this chart. The blue color scheme returns, but the color distinctions don't match the split between Europe and other continents as occurs in the map above. Instead, the clock colors are based on their location. The outer and inner circles of clocks are blue.
+        <br><br>
+        Global timezones were not in effect during the late 1850s. We can assume each clock shows the local time. The emphasis on an American audience is demonstrated through having the New York City clock serve as the center point of the entire display.
+        <br><br>
+        Bordering the clocks are illustrations of the two ships used to lay the telegraph cable across the Atlantic Ocean, the Niagara and the Agamemnon.
+        <br><br>
+        The global timepiece highlights the transformative role the telegraph has in linking different locations and times together.
+        <div id="next_stop">
+            <button id="next_stop_eight" onclick="map.flyTo([-170.75, 62.625], 3); $('#inset_seven').hide(); $('#inset_eight').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_eight">
+        Welcome to the eighth stop!
+        <br><br>
+        This portion of the chart includes a general representation of the Earth, presumably showing North America in daylight.
+        <br><br>
+        This portion of the chart emphasizes the global, historic implications of this event by including the telegraph messages sent between Queen Victoria and President Buchanan.
+        <br><br>
+        Some key phrases noted by President Buchanan included that the telegraph should "prove to be a bond of perpetual peace and friendship" and that all nations "shall be forever neutral (to telegraph communications), and that its communications shall be held sacred in pass to their places of destination, even in the midst of hostilities."
+        <br><br>
+        To see the message from Queen Victoria, please click next stop!
+        <div id="next_stop">
+            <button id="next_stop_nine" onclick="map.flyTo([-166.75, 378.625], 3); $('#inset_eight').hide(); $('#inset_nine').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_nine">
+        Welcome to the ninth stop!
+        <br><br>
+        Here we see another general representation of the Earth, but the continents shown appear to be the same North American continent shown on the other side of the chart. Conceptually, it seems like these globes were intended to show how communication regardless of time of day, but the representation of the continents leads to some confusion.
+        <br><br>
+        The historic importance of this global event is again reinforced by including Queen Victoria's message to President Buchanan.
+        <br><br>
+        Some key phrases noted by Queen Victoria included that the telegraph should "prove an additional link betwen the nations whose friendship is founded upon their common interest and reciprocal esteem."
+        <br><br>
+        To jump to the last tour location, please click next stop!
+        <div id="next_stop">
+            <button id="next_stop_ten" onclick="map.flyTo([-180, 80], 0); $('#inset_nine').hide(); $('#inset_ten').show();">Next stop</button>
+        </div>
+    </div>
+
+    <div id="inset_ten">
+        Welcome to the final stop!
+        <br><br>
+        We've journeyed around this chart and seen how the telegraph was shown as a triumphant event with a specific emphasis as a triumphant American event. Though England is also recognized, the way in which the United States is depicted in map in the upper right conveys a message of technology advancement that is lacking in the bird's eye view map. 
+        <br><br>
+        Multiple mapping scales are used, most commonly small and medium scale maps, and several styles are used, including charting, topographic, and chororaphic.
+        <br><br>
+        That this was an important international event is further reinforced by including the telegraph messages between President Buchanan and Queen Victoria. This chart looks like an official document, even with the wording "Entered according to act of Congress in the year 1858 by Charles Magnus and Co."
+        <br><br>
+        As for the telegraph cable? It ceased working a few months after it first started operation. More telegraph lines continued to be established across the Atlantic Ocean and communication continued. These efforts are detailed on several sites, including <a href="https://atlantic-cable.com/" target="_blank">this one</a>. 
+        <br><br>
+        View the chart at the <a href="https://www.loc.gov/resource/g3201p.ct000465/" target="_blank">Library of Congress</a>.
+        <br><br>
+        Interactive map created by John F. Obrycki, in the <a href="https://newmapsplus.as.uky.edu/" target="_blank">New Maps Plus Program</a>. Visit my <a href="https://jfobrycki.github.io/" target="_blank">GitHub portfolio</a>.
     </div>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
@@ -203,19 +320,25 @@
             "https://tile.loc.gov/image-services/iiif/service:gmd:gmd3:g3201:g3201p:ct000465/info.json"
         ).addTo(map);
 
-        map.on("moveend", () => {
-            // returns 'southwest_lng,southwest_lat,northeast_lng,northeast_lat' of current view
-            const currentBounds = map.getBounds().toBBoxString();
-            console.log(currentBounds)
-            // output current bounds to screen
-            document.getElementById("current-bounds").innerText = currentBounds;
-        });
+        // map.on("moveend", () => {
+        //     // returns 'southwest_lng,southwest_lat,northeast_lng,northeast_lat' of current view
+        //     const currentBounds = map.getBounds().toBBoxString();
+        //     //console.log(currentBounds)
+        //     // output current bounds to screen
+        //     document.getElementById("current-bounds").innerText = currentBounds;
+        // });
 
         $('#inset_one').hide();
         $('#inset_two').hide();
         $('#inset_three').hide();
         $('#inset_four').hide();
         $('#inset_five').hide();
+        $('#inset_five_part_two').hide();
+        $('#inset_six').hide();
+        $('#inset_seven').hide();
+        $('#inset_eight').hide();
+        $('#inset_nine').hide();
+        $('#inset_ten').hide();
         $('#home_button').hide();
 
         document
