@@ -31,17 +31,21 @@
             z-index: 1000;
             background: whitesmoke;
             padding: 8px 12px;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
         }
 
         #intro {
             position: absolute;
             left: 50px;
-            top: 60px;
+            top: 30px;
             width: 300px;
             z-index: 1000;
             background: whitesmoke;
             padding: 8px 12px;
             font-size: large;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
         }
 
         #home_button {
@@ -51,6 +55,8 @@
             z-index: 1000;
             background: whitesmoke;
             padding: 8px 12px;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
         }
 
         /* Create the style for mutiple inset text boxes */
@@ -71,7 +77,9 @@
             background: whitesmoke;
             padding: 8px 12px;
             font-size: large;
-            overflow-y:scroll;
+            overflow-y: scroll;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
         }
 
         #inset_four {
@@ -84,7 +92,9 @@
             background: whitesmoke;
             padding: 8px 12px;
             font-size: large;
-            overflow-y:scroll;
+            overflow-y: scroll;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
         }
 
         #inset_six {
@@ -97,7 +107,9 @@
             background: whitesmoke;
             padding: 8px 12px;
             font-size: large;
-            overflow-y:scroll;
+            overflow-y: scroll;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
         }
 
         #inset_seven {
@@ -110,7 +122,9 @@
             background: whitesmoke;
             padding: 8px 12px;
             font-size: large;
-            overflow-y:scroll;
+            overflow-y: scroll;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
         }
 
         #inset_ten {
@@ -123,7 +137,13 @@
             background: whitesmoke;
             padding: 8px 12px;
             font-size: large;
-            overflow-y:scroll;
+            overflow-y: scroll;
+            border: 4px solid lightblue;
+            outline: 4px solid gray;
+        }
+
+        .button {
+            font-size: 16px;
         }
     </style>
 </head>
@@ -133,12 +153,12 @@
     <div id="iiif-map"></div>
 
     <div id="ui">
-        <button id="start-the-tour">Start the tour</button>
+        <button id="start-the-tour" class="button">Start the tour</button>
     </div>
 
     <!-- Create the reset button that reloads the page and takes the user back to the beginning -->
     <div id="home_button">
-        <button id="home" onclick="window.location.href=window.location.href">Back to the beginning</button>
+        <button id="home" class="button" onclick="window.location.href=window.location.href">Back to the beginning</button>
     </div>
 
     <!-- This is the text for the box that first appears when the page is initially loaded -->
@@ -153,7 +173,7 @@
             href="https://www.loc.gov/resource/g3201p.ct000465/" target="_blank">original image here</a>.
         This curation provides a geographic interpretation of this chart.
         <br><br>
-        To begin the detailed tour, please click the button below.
+        To begin the 10 stop tour, please click the button below.
         <br><br>
         If you'd like to explore the chart first, please use your mouse or the arrow buttons to zoom in and move around.
         <br><br>
@@ -178,8 +198,8 @@
         <br><br>
         How is the United Kingdom displayed in this map? Click next stop to find out!
         <div id="next_stop">
-            <button id="next_stop_one"
-                onclick="map.flyTo([-90, 349.12], 3); $('#inset_one').hide(); $('#inset_two').show();">Next
+            <button id="next_stop_one" class="button"
+                onclick="map.flyTo([-90, 349.12], 3); $('#inset_one').hide(); $('#inset_two').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -192,12 +212,18 @@
         is shown using a general thematic pastoral type image.
         <br><br>
         The United States map shows the expanse of the entire country and the map of Europe shows one single harbor.
-        This representation conveys a message that the United States is more advanced and powerful. This interpretation is informed by the <a href="https://www.routledge.com/Introducing-Human-Geographies/Cloke-Crang-Goodwin/p/book/9781444135350" target="_blank">book chapter "The Power of Maps" by Jeremy Crampton</a> and this contrast between the political and bird's eye maps is also a form of persuasive mapping that is informed by <a href="https://press.uchicago.edu/books/HOC/HOC_V6/HOC_VOLUME6_P.pdf#page=40" target="_blank">Judith Tyner's discussion of persuasive cartography</a>. 
+        This representation conveys a message that the United States is more advanced and powerful. This interpretation
+        is informed by the <a
+            href="https://www.routledge.com/Introducing-Human-Geographies/Cloke-Crang-Goodwin/p/book/9781444135350"
+            target="_blank">book chapter "The Power of Maps" by Jeremy Crampton</a> and this contrast between the
+        political and bird's eye maps is also a form of persuasive mapping that is informed by <a
+            href="https://press.uchicago.edu/books/HOC/HOC_V6/HOC_VOLUME6_P.pdf#page=40" target="_blank">Judith Tyner's
+            discussion of persuasive cartography</a>.
         <br><br>
         Next we'll consider the four ways this chart displays the telegraph line itself.
         <div id="next_stop">
-            <button id="next_stop_two"
-                onclick="map.flyTo([-45, 162.75], 3); $('#inset_two').hide(); $('#inset_three').show();">Next
+            <button id="next_stop_two" class="button"
+                onclick="map.flyTo([-45, 162.75], 3); $('#inset_two').hide(); $('#inset_three').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -214,13 +240,13 @@
         <br><br>
         If you want to see the other end of this telegraph line, click follow the route to see!
         <div id="follow_route">
-            <button onclick="map.flyTo([-45, 400.75], 3); $('#inset_two').hide(); $('#inset_three').show();">Follow the
+            <button class="button" onclick="map.flyTo([-45, 400.75], 3); $('#inset_two').hide(); $('#inset_three').show().scrollTop(0);">Follow the
                 route</button>
         </div>
         Ready for the second telegraph line map! Please click next stop!
         <div id="next_stop">
-            <button id="next_stop_three"
-                onclick="map.flyTo([-168, 237], 3); $('#inset_three').hide(); $('#inset_four').show();">Next
+            <button id="next_stop_three" class="button"
+                onclick="map.flyTo([-168, 237], 3); $('#inset_three').hide(); $('#inset_four').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -237,8 +263,8 @@
         world is not filled in. This is a color theme that will appear in another part of the chart, though you'll find
         a potential error with this color scheme. Ready for the second telegraph line map! Please click next stop!
         <div id="next_stop">
-            <button id="next_stop_four"
-                onclick="map.flyTo([-270, 54.75], 3); $('#inset_four').hide(); $('#inset_five').show();">Next
+            <button id="next_stop_four" class="button"
+                onclick="map.flyTo([-270, 54.75], 3); $('#inset_four').hide(); $('#inset_five').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -258,23 +284,28 @@
         This map again crosses the entire chart with a dashed line linking the left and right sides of the page. Let's
         follow the route again!
         <div id="follow_route">
-            <button
-                onclick="map.flyTo([-240.125, 380.625], 3.5); $('#inset_five').hide(); $('#inset_five_part_two').show();">Follow
+            <button class="button"
+                onclick="map.flyTo([-240.125, 380.625], 3.5); $('#inset_five').hide(); $('#inset_five_part_two').show().scrollTop(0);">Follow
                 the route</button>
         </div>
     </div>
 
     <div id="inset_five_part_two">
         The dashed red telegraph line has crossed the chart over to Europe. We see a range of telegraph lines that link
-        Ireland to England and then onto continental Europe. The concept of connections is a common theme throughout this chart, showing how different parts of the world are linked together by telegraph. This chart is a medium of power, which is a concept discussed by <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-40953-5_9" target="_blank">Marianna Pavlovskaya</a>. Locations in the world that are connected by telegraph are visualized on the various maps, demonstrating these locations have a greater importance as determined by the mapmaker.
+        Ireland to England and then onto continental Europe. The concept of connections is a common theme throughout
+        this chart, showing how different parts of the world are linked together by telegraph. This chart is a medium of
+        power, which is a concept discussed by <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-40953-5_9"
+            target="_blank">Marianna Pavlovskaya</a>. Locations in the world that are connected by telegraph are
+        visualized on the various maps, demonstrating these locations have a greater importance as determined by the
+        mapmaker.
         <br><br>
         Given the attention paid to showing how this telegraph line links the two continents, it's interesting there's
         no actual line drawn here that links the trans-Atlantic cable to other lines in Ireland.
         <br><br>
         Ready for the final telegraph map? Please click next stop!
         <div id="next_stop">
-            <button id="next_stop_six"
-                onclick="map.flyTo([-340.5, 231.8], 4); $('#inset_five_part_two').hide(); $('#inset_six').show();">Next
+            <button id="next_stop_six" class="button"
+                onclick="map.flyTo([-340.5, 231.8], 4); $('#inset_five_part_two').hide(); $('#inset_six').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -287,8 +318,8 @@
         map is more art than navigation device as some depths such as 2000 and 1580 seem to have similar heights.
         Now the tour moves to other aspects of the chart, please click next stop to see!
         <div id="next_stop">
-            <button id="next_stop_seven"
-                onclick="map.flyTo([-271.25, 185], 2); $('#inset_six').hide(); $('#inset_seven').show();">Next
+            <button id="next_stop_seven" class="button"
+                onclick="map.flyTo([-271.25, 185], 2); $('#inset_six').hide(); $('#inset_seven').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -308,10 +339,14 @@
         Ocean, the Niagara and the Agamemnon.
         <br><br>
         The global timepiece highlights the transformative role the telegraph has in linking different locations and
-        times together. One interpretation of the global clock can be as an prototype of volunteered geographic information, as each telegraph operator could contribute to a larger global dataset of time. The important role of volunteered geographic information for more recent map efforts is <a href="https://link.springer.com/article/10.1007/s10708-008-9186-0" target="_blank">discussed by Sarah Elwood</a>. 
+        times together. One interpretation of the global clock can be as an prototype of volunteered geographic
+        information, as each telegraph operator could contribute to a larger global dataset of time. The important role
+        of volunteered geographic information for more recent map efforts is <a
+            href="https://link.springer.com/article/10.1007/s10708-008-9186-0" target="_blank">discussed by Sarah
+            Elwood</a>.
         <div id="next_stop">
-            <button id="next_stop_eight"
-                onclick="map.flyTo([-170.75, 62.625], 3); $('#inset_seven').hide(); $('#inset_eight').show();">Next
+            <button id="next_stop_eight" class="button"
+                onclick="map.flyTo([-170.75, 62.625], 3); $('#inset_seven').hide(); $('#inset_eight').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -331,8 +366,8 @@
         <br><br>
         To see the message from Queen Victoria, please click next stop!
         <div id="next_stop">
-            <button id="next_stop_nine"
-                onclick="map.flyTo([-166.75, 378.625], 3); $('#inset_eight').hide(); $('#inset_nine').show();">Next
+            <button id="next_stop_nine" class="button"
+                onclick="map.flyTo([-166.75, 378.625], 3); $('#inset_eight').hide(); $('#inset_nine').show().scrollTop(0);">Next
                 stop</button>
         </div>
     </div>
@@ -346,15 +381,18 @@
         confusion.
         <br><br>
         The historic importance of this global event is again reinforced by including Queen Victoria's message to
-        President Buchanan. As discussed by <a href="https://utpjournals.press/doi/10.3138/E4K6-P241-184J-6452" target="_blank">Denis Wood</a>, a map becomes a map through a conversation between the viewer and the mapmaker. This telegraph chart provides an additional conversation within the map itself between the President and the Queen. Including this conversation conveys to the viewer the importance of the mapped event.
+        President Buchanan. As discussed by <a href="https://utpjournals.press/doi/10.3138/E4K6-P241-184J-6452"
+            target="_blank">Denis Wood</a>, a map becomes a map through a conversation between the viewer and the
+        mapmaker. This telegraph chart provides an additional conversation within the map itself between the President
+        and the Queen. Including this conversation conveys to the viewer the importance of the mapped event.
         <br><br>
         Some key phrases noted by Queen Victoria included that the telegraph should "prove an additional link betwen the
         nations whose friendship is founded upon their common interest and reciprocal esteem."
         <br><br>
         To jump to the last tour location, please click next stop!
         <div id="next_stop">
-            <button id="next_stop_ten"
-                onclick="map.flyTo([-180, 80], 0); $('#inset_nine').hide(); $('#inset_ten').show();">Next stop</button>
+            <button id="next_stop_ten" class="button"
+                onclick="map.flyTo([-180, 80], 0); $('#inset_nine').hide(); $('#inset_ten').show().scrollTop(0);">Next stop</button>
         </div>
     </div>
 
@@ -367,7 +405,9 @@
         eye view map.
         <br><br>
         Multiple mapping scales are used, most commonly small and medium scale maps, and several styles are used,
-        including charting, topographic, and chorographic. The development of these three cartographic modes is <a href="https://www.utpjournals.press/doi/abs/10.3138/D13V-8318-8632-18K6" target="_blank">discussed by Matthew Edney</a>.
+        including charting, topographic, and chorographic. The development of these three cartographic modes is <a
+            href="https://www.utpjournals.press/doi/abs/10.3138/D13V-8318-8632-18K6" target="_blank">discussed by
+            Matthew Edney</a>.
         <br><br>
         That this was an important international event is further reinforced by including the telegraph messages between
         President Buchanan and Queen Victoria. This chart looks like an official document, even with the wording
@@ -383,15 +423,15 @@
         Interactive map created by John F. Obrycki, in the <a href="https://newmapsplus.as.uky.edu/" target="_blank">New
             Maps Plus Program</a>. Visit my <a href="https://jfobrycki.github.io/" target="_blank">GitHub portfolio</a>.
     </div>
-<!-- The code for the different insets ends here -->
+    <!-- The code for the different insets ends here -->
 
-<!-- Load in leaflet -->
+    <!-- Load in leaflet -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
     <!-- make sure to import Leaflet-IIIF *after* the main Leaflet package -->
     <script src="https://cdn.rawgit.com/mejackreed/Leaflet-IIIF/v3.0.0/leaflet-iiif.js"></script>
-   <!-- Load in jquery -->
+    <!-- Load in jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
@@ -437,6 +477,7 @@
                 $('#intro').hide();
                 $('#ui').hide();
                 $('#inset_one').show();
+                $('#inset_one').scrollTop(0);
                 $('#home_button').show();
             });
 
